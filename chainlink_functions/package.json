@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Tooling for interacting with Chainlink Functions",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "cd .. && husky install chainlink_functions/.husky",
     "compile": "hardhat compile",
     "test": "npm run test:unit",
     "test:unit": "hardhat test test/unit/*.spec.js",

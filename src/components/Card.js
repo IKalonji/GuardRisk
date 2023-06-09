@@ -78,7 +78,7 @@ export function DashboardInformationCard(props) {
           variant="outlined"
         >
           <Typography variant="body1" color="springgreen">
-            Text here
+            NOT ACTIVE
           </Typography>
         </Paper>
       </Card>
@@ -147,6 +147,12 @@ export function CancelPolicyCard() {
 }
 
 export function StakeOptionsCard(props){
+
+  const doStaking = () => {
+    const service = new AppStateService();
+    service.stakeAmount();
+  }
+
    return (
     <Box sx={{ width: 380}}>
         <Card sx={{ width: 300, height: 300, zIndex: -1}}>
@@ -160,7 +166,7 @@ export function StakeOptionsCard(props){
 
             <Box sx={{ display: 'flex', justifyContent: 'center',alignItems:"center",justifyContent:"center", mt: 2 }}>
 
-              <MainButton variant={"contained"} buttonContent={props.Staker.ButtonText} Style={{ top:150}}/>
+              <MainButton variant={"contained"} buttonContent={props.Staker.ButtonText} clicked={doStaking} Style={{ top:150}}/>
             </Box>
           </CardContent>
         </Card>

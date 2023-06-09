@@ -42,31 +42,20 @@ export default function ModaIltemsList() {
           <ListItemButton sx={{ pl: 4 }} >
                 <ListItemIcon>
                     <div className='span'>
-                        <img className='logoImage' src='https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg' alt=''/>
+                        <img className='logoImage' src='https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png' alt=''/>
                     </div>
                 </ListItemIcon>    
-                <ListItemText primary="Etherum" />      
+                <ListItemText primary="Polygon" />      
             </ListItemButton>
 
             <ListItemButton sx={{ pl: 4 }}>
             <ListItemIcon>
                     <div className='span'>
-                        <img className='logoImage' src='https://s2.coinmarketcap.com/static/img/coins/64x64/2634.png' alt=''/>
+                        <img className='logoImage' src='https://s2.coinmarketcap.com/static/img/coins/64x64/4558.png' alt=''/>
                     </div>
                 </ListItemIcon> 
-                <ListItemText primary="XDC" />
-            </ListItemButton>
-
-            <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                    <div className='span'>
-                        <img className='logoImage' src='https://assets.coingecko.com/coins/images/13708/large/WeChat_Image_20220118095654.png?1642471094' alt=''/>
-                    </div>
-                </ListItemIcon> 
-                <ListItemText primary="OKT" />
-            </ListItemButton>
-
-          
+                <ListItemText primary="Flow" />
+            </ListItemButton> 
         </List>
       </Collapse>
     </List>

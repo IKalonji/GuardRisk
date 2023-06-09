@@ -9,6 +9,7 @@ import { ModalRightButton, ModalLefButton } from '../models/CustomButtonStyles';
 import ModaIltemsList from './ModaIltemsList';
 
 import MainButton from './Button';
+import { AppStateService } from '../state-singletons/app-state.service';
 
 const BoxStyle = {
   position: 'absolute',
@@ -28,6 +29,10 @@ function PolicyModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const selectPolicy = () => {
+    let service = new AppStateService();
+    service.policySelect();
+  }
 
   return (
     <div>
@@ -50,8 +55,8 @@ function PolicyModal(props) {
 
           <ModaIltemsList />
 
-          {/* <Connect Variant={"contained"} content={"Policy details"} SX={ModalRightButton}/> */}
-          <Connect content={"Management Page"} Variant={"contained"} singleton={props.singleton} SX={ModalRightButton}/>
+          {/* <Connect content={"Management Page"} Variant={"contained"} singleton={props.singleton} SX={ModalRightButton}/> */}
+          <MainButton clicked={selectPolicy} buttonContent={"Confirm"} variant={"contained"} Style={ModalRightButton}/>
           <MainButton clicked={handleClose} buttonContent={"Close"} variant={"contained"} Style={ModalLefButton}/>
         
         </Box>
