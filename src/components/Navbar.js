@@ -17,7 +17,7 @@ const Navbar = (props) => {
     let result = await service.connectToMetaMask();
     if (result) {
       service.getPolicy().then(() => {
-        if (service.policyDetails !== undefined){
+        if (service.policyDetails !== undefined && service.policyDetails.isActive !== false){
           navigate("/management");
           }
           else {
