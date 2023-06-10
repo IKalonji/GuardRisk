@@ -1082,8 +1082,7 @@ export class AppStateService {
         "type": "function"
       }
     ];
-    // this.insurance = new ethers.Contract(this.insuranceContract, this.insuranceABI, provider);
-    // this.staking = new ethers.Contract(this.stakingContract, this.stakingABI, provider);
+    this.policyDetails = undefined;
   }
   
   async connectToMetaMask() {
@@ -1110,14 +1109,15 @@ export class AppStateService {
     return this.walletConnected;
   }
 
-  async stakeAmount() {
+  async stakeAmount(amountvalue, period) {
     let signer = this.provider.getSigner();
     let staking = new ethers.Contract(this.stakingContract, this.stakingABI, signer);
     try {
-      const amount = ethers.utils.parseEther('0.001')
-      const result = await staking.depositStake(6, {value: amount});
-      console.log('Function result:', result);
+      const amount = ethers.utils.parseEther(`${amountvalue}`)
+      const result = await staking.depositStake(period, {value: amount});
+      console.log('stake amount Function result:', result);
     } catch (error) {
+      alert("There was an error in stake amount function. " + error.reason);
       console.error('Error calling contract function:', error);
     }
   }
@@ -1125,22 +1125,70 @@ export class AppStateService {
   async getPolicy() {
     let signer = this.provider.getSigner();
     let staking = new ethers.Contract(this.insuranceContract, this.insuranceABI, signer);
+
     try {
-      const result = await staking.getPolicyDetails(this.walletAddress);
-      console.log('Function result:', result);
+      const result = await staking.policies(this.walletAddress);
+      const assetprice = await staking.tokenPrice();
+      const volatility = await staking.volatility();
+      console.log(assetprice, volatility);
+      let policyType = this.policyTypeMap(result[0]);
+      let coverage = parseInt(result[1]._hex, 16);
+      let expirary = parseInt(result[2]._hex, 16);
+      let maxLoss = parseInt(result[3]._hex, 16);
+      let isActive = result[4]
+      let _assetPrice = parseInt(assetprice, 16);
+      let _volatility = parseInt(volatility, 16);
+      this.policyDetails = {
+        policy: policyType,
+        coverage: coverage,
+        expire: expirary,
+        maxLoss: maxLoss,
+        isActive: isActive,
+        price: _assetPrice,
+        volatility: _volatility,
+      };
+      console.log('get policy Function result:', this.policyDetails);
     } catch (error) {
+      alert("There was an error in get policy function. "+ error.reason);
       console.error('Error calling contract function:', error);
+    }
+  }
+
+  policyTypeMap(num){
+    switch (num) {
+      case 1:
+        return "Advanced";
+      case 2:
+        return "Premium";
+      case 3:
+        return "Platinum";
+      default:
+        return "Basic";
     }
   }
 
   async policySelect() {
     let signer = this.provider.getSigner();
-    let staking = new ethers.Contract(this.insuranceContract, this.insuranceABI, signer);
+    let insurance = new ethers.Contract(this.insuranceContract, this.insuranceABI, signer);
     try {
-      const amount = ethers.utils.parseEther('0.001');
-      const result = await staking.selectPolicy(6, {value:amount});
-      console.log('Function result:', result);
+      let amount = ethers.utils.parseEther('0.001');
+      let policyEnumValue = ethers.BigNumber.from("0");
+      const result = await insurance.selectPolicy(policyEnumValue, {value:amount});
+      console.log('policy select Function result:', result);
     } catch (error) {
+      alert("There was an error in policy select function. "+ error.reason);
+      console.error('Error calling contract function:', error);
+    }
+  }
+
+  async policyCancel() {
+    let signer = this.provider.getSigner();
+    let insurance = new ethers.Contract(this.insuranceContract, this.insuranceABI, signer);
+    try {
+      const result = await insurance.cancelPolicy();
+      console.log('policy cancel Function result:', result);
+    } catch (error) {
+      alert("There was an error in policy Canel function. "+ error.reason);
       console.error('Error calling contract function:', error);
     }
   }

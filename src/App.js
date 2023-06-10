@@ -6,9 +6,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Policies from './pages/PoliciesPage';
 import Dashboard from './pages/Management';
-import StakingPage from './pages/StakingPage';
-import StakerOptions from './pages/StakerOptions';
-import ModaIltemsList from './components/ModaIltemsList';
+import StakingPage from './pages/StakingHomePage';
+import StakerOptions from './pages/SelectStakingOptions';
 
 import ErrorBoundary from './ErrorBoundary';
 import './App.css'
@@ -28,7 +27,6 @@ const App = () => {
         <Route path="/Management" element={<Dashboard singleton={stateService}/>} />
         <Route path='/become-a-staker' element={<StakingPage />}/>
         <Route path='/stake-options' element={<StakerOptions />}/>
-        <Route path='/list' element={<ModaIltemsList />} />
       </Routes>
 
       </ErrorBoundary>

@@ -1,27 +1,26 @@
 export let inforMation = [
     {
-        priceheader: "$5.00",
+        priceheader: "MATIC 5.00",
         planName: "Basic plan",
         shertDescription: "The Basic plan is pretty basic",
-        fullDescription: "This is the full description of the Basic plan",
+        fullDescription: "The Basic plan will only cover you from a loss of 70% and pays out up to 20%",
     },
     {
-        priceheader: "$10.00",
+        priceheader: "MATIC 10.00",
         planName: "Advanced plan",
         shertDescription: "The Advanced plan is Advanced",
-        fullDescription: "This is the full description of the Advanced plan",
+        fullDescription: "The Advanced plan will only cover you from a loss of 60% and pays out up to 40%",
     },
     {
-        priceheader: "$15.00",
+        priceheader: "MATIC 15.00",
         planName: "premium plan",
         shertDescription: "The premium plan is pretty premium",
-        fullDescription: "This is the full description of the premium plan",
+        fullDescription: "The premium plan will only cover you from a loss of 50% and pays out up to 50%",
     },
     {
-        priceheader: "$30.00",
+        priceheader: "MATIC 30.00",
         planName: "platinum plan",
         shertDescription: "The platinum plan is pretty platinum",
-        fullDescription: "This is the full description of the platimum plan",
+        fullDescription: "The platinum plan will only cover you from a loss of 30% and pays out up to 70%",
     },
 ]
-

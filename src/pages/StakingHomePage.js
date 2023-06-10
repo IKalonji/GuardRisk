@@ -10,9 +10,11 @@ const StakingPage = () => {
 
   return (
     <div className="StakingPage">
+
       <div className="image-container">
         <img src={Image} alt="" />
       </div>
+      
       <div className="content-container">
         <Box sx={{ mb: 4 }}>
           <Typography variant="h4" component="h1" align="center">

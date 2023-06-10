@@ -7,27 +7,18 @@ import "./ComponentStyles/Claims.css"
 
 const Claims = () => {
   return (
-    <div className="page">
+    <div className="page" >
 
       <div className="centered-paper">
-        <Paper elevation={3} sx={{ padding: '1rem', textAlign: 'center' }}>
+        <Paper elevation={3} sx={{position:"relative", padding: '1rem', textAlign: 'center',left:"25%", }} >
           <Typography variant="h3" component="h2">
-            Outstanding claims ________
+            Outstanding claims
           </Typography>
         </Paper>
         <br />
-        <Paper elevation={3} sx={{ padding: '1rem', width:"660px"}}>
+        <Paper elevation={3} sx={{position:"relative", padding: '1rem', width:"660px", left:"25%", textAlign: 'center'}}>
           <Typography variant="h4" component="h2">
-            Line 1
-          </Typography>
-          <Typography variant="h4" component="h2">
-            Line 2
-          </Typography>
-          <Typography variant="h4" component="h2">
-            Line 3
-          </Typography>
-          <Typography variant="h4" component="h2">
-            Line 4
+            No Pending/Historical Claims
           </Typography>
         </Paper>
       </div>

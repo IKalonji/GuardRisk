@@ -32,3 +32,14 @@
     object-fit: cover;
     opacity: 0.4;
   }
+
+  .logoImage{
+
+    position: relative;
+    left: -28%;
+    top: 0.7%;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+
+}

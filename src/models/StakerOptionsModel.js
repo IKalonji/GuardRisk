@@ -1,17 +1,20 @@
 export const StakeOptions = [
     {
-        STakeOption: "6 Nonths staking",
-        PlanDescription: "Do yourself a solid and stake with us",
+        STakeOption: "6 Months staking",
+        PlanDescription: "This 6 Months staking option returns a solid 3% APR",
         ButtonText: "Stake 6 months",
+        period: 6,
     },
     {
         STakeOption: "12 Months staking",
-        PlanDescription: "Do yourself a solid and stake with us",
+        PlanDescription: "This 12 Months staking option returns a solid 8.1% APR",
         ButtonText: "Stake 12 months",
+        period: 12,
     },
     {
         STakeOption: "24 Months Staking",
-        PlanDescription: "Do yourself a solid and stake with us",
+        PlanDescription: "This 24 Months staking option returns a solid 13% APR",
         ButtonText: "Stake 24 months",
+        period: 24,
     }
 ]
